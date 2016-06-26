@@ -1,0 +1,242 @@
+<!-- NOTE: Please don not delete any of the comments below -->
+<!doctype html>
+<html class="no-js" ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title>diveGalaxSeaCozumel</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        
+
+        <link rel="stylesheet" href="styles/main-1632ff10.css">
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <script src="scripts/modernizr-c1ff1650.js"></script>
+    </head>
+    <body>
+    <script src="scripts/vendor-cf232ba0.js"></script>
+     
+        
+    <!-- // <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.2.js"></script> -->
+
+    
+    <!-- Any include make it between the build comments below -->
+    <script src="scripts/main-6526f0f6.js"></script>
+
+    <script data-require="ui-bootstrap@*" data-semver="0.14.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.min.js"></script>
+    <script>
+    // Load this when the DOM is ready
+    $(function(){
+      // You used .myCarousel here. 
+      // That's the class selector not the id selector,
+      // which is #myCarousel
+      $('#myCarousel').carousel();
+    });
+    </script>
+      <div class="index-container">
+    
+        <div class="col-md-10 col-md-offset-1 index-panel">
+          <header>
+            <div class="row">
+              <div class="image-container col-sm-4">
+                <a class="logo-link" href="#/home">
+                  <img class="brand-image" alt="Brand" src="images/logo.png">
+                </a>
+              </div>
+
+              <div class="col-sm-8">
+                <div class="row">
+
+                  <div class="col-md-12 shadow menu-nav-bar"> 
+                    <div id='cssmenu'>
+                      <ul>
+                         <li><a href='#/'>Home</a></li>
+                         <li class='active'><a href='#/current_pricing'>Diving</a>
+                         <li><a href="#/reef_map">Reef Map</a></li>
+                         <li><a href="#/about_cozumel">About Cozumel</a></li>
+                         <li><a href="#/gallery">Gallery</a></li>
+                         <li><a href="#/reservations">Book My Diving</a></li>
+                      </ul>
+                    </div><!-- End of cssmenu -->
+                  </div><!-- End of col 12 menu-nav-bar  -->
+
+                  <div class="col-md-12 pull right">
+                    <div class="pull-right">
+                      <a href="http://www.divessi.com/">
+                        <img class="ssi-logo" src="images/NEW-SSI-LOGO-WHT.png" alt="SSI logo">
+                      </a>
+                    </div>
+                  </div>
+
+                </div><!-- End of inner row -->
+              </div><!-- End of col-sm-8 -->
+            </div><!-- End of outter row -->
+          </header>
+
+          <div ng-view=""></div>
+
+          <footer ng-controller="IndexCtrl as idx">
+            <div id="footer-container">
+              <div class="">
+                <div id="" class="col-md-4">
+                  <div class="footer-col-title">
+                    <p>Review us at...</p>
+                  </div>
+                  <div class="trip-advisor-logo">
+                    <a href="#">
+                      <img class="trip-advisor-img" src="images/3-TA_logo_green_background.png" alt="trip advisor logo">
+                    </a>
+                  </div>
+                  <div class="latest-review">
+                    <hr class="general-line-brake">
+                  </div>
+                  <div class="reviews" ng-repeat="review in idx.tripAdvisorReview">
+                    <p>
+                      {{review}} <a href="http://www.tripadvisor.com/Attraction_Review-g150809-d3493106-Reviews-Dive_Galaxsea-Cozumel_Yucatan_Peninsula.html" target="_blank"><span>More...</span></a>
+                    </p>
+                  </div>
+                </div>
+
+                <div id="weather" class="col-md-4">
+                  <p class="left-it footer-col-title">{{idx.weatherInCity}}
+                    <button ng-click="idx.toggleTemperature('farenheit')" ng-class="idx.tempScale ? 'btn btn-info btn-sm' : 'btn btn-default btn-sm'"><i class="wi wi-fahrenheit degree-scale"></i></button>
+                    <button type="button" ng-model="celsius" ng-click="idx.toggleTemperature('celsius')" ng-class="idx.tempScale ? 'btn btn-default btn-sm' : 'btn btn-info btn-sm'"><i class="wi wi-celsius degree-scale"></i></button>
+                  </p>
+                  <div ng-if="idx.tempScale">
+                    <div ng-include="'partials/farenheit.html'"></div>
+                  </div>
+                  <div ng-if="!idx.tempScale">
+                      <div ng-include="'partials/celsius.html'"></div>
+                  </div>
+                </div>
+
+                <div id="social" class="col-md-4">
+                  <div class="row ssi-nitrox-logos">
+                    <div class="col-md-8">
+                      <a href="http://www.divessi.com/">
+                        <img class="ssi-logo" src="images/ssi-logo-red-text.png" alt="SSI logo">
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <img class="nitrox-logo" src="images/nitroxT.png" alt="Nitrox Patch">
+                    </div>
+                  </div>
+                  <div class="social-icon-facebook">
+                    <i class="fa fa-2x fa-facebook-square"></i>
+                    <a href="https://www.facebook.com/DiveGalaxSeaCozumel">
+                      &nbsp;&nbsp;&nbsp;Facebook
+                    </a>
+                    <hr class="general-line-brake">
+                  </div>
+                  <div class="social-icon-twitter">
+                    <i class="fa fa-2x fa-twitter-square"></i>
+                    <a href="https://twitter.com/divegalaxsea">
+                      &nbsp;&nbsp;&nbsp;Twitter
+                    </a>
+                    <hr class="general-line-brake">
+                  </div>
+                  <div class="email-us">
+                    <p>Have a quick question?</p>
+                      <a href="mailto:kim@divegalaxsea.com"><span>Contact us!</span></a>
+                    <br>
+                    <p>Ready to go diving?</p>
+                      <a href="#/reservations"><span>Book Your Diving</span></a>
+                  </div>
+                </div>
+
+                <div class="copy-right general-line-brake col-md-12">
+                  copyright diveGalaxsea 2016 <span class="pull-right">site by:<a href="http://www.troyleach.com">&nbsp;&nbsp;&nbsp;Troyleach</a></span>
+                </div>
+              </div>
+            </div><!-- End of footer container -->
+          </footer>
+        </div><!-- End of index container -->
+      </div><!-- End of index container -->
+
+      <!-- not sure why I can't put this in a separate file for the menu-->
+      <script>
+        (function($) {
+
+          $.fn.menumaker = function(options) {
+              
+              var cssmenu = $(this), settings = $.extend({
+                title: "Menu",
+                format: "dropdown",
+                sticky: false
+              }, options);
+
+              return this.each(function() {
+                cssmenu.prepend('<div id="menu-button">' + settings.title + '</div>');
+                $(this).find("#menu-button").on('click', function(){
+                  $(this).toggleClass('menu-opened');
+                  var mainmenu = $(this).next('ul');
+                  if (mainmenu.hasClass('open')) { 
+                    mainmenu.hide().removeClass('open');
+                  }
+                  else {
+                    mainmenu.show().addClass('open');
+                    if (settings.format === "dropdown") {
+                      mainmenu.find('ul').show();
+                    }
+                  }
+                });
+
+                cssmenu.find('li ul').parent().addClass('has-sub');
+
+                multiTg = function() {
+                  cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+                  cssmenu.find('.submenu-button').on('click', function() {
+                    $(this).toggleClass('submenu-opened');
+                    if ($(this).siblings('ul').hasClass('open')) {
+                      $(this).siblings('ul').removeClass('open').hide();
+                    }
+                    else {
+                      $(this).siblings('ul').addClass('open').show();
+                    }
+                  });
+                };
+
+                if (settings.format === 'multitoggle') multiTg();
+                else cssmenu.addClass('dropdown');
+
+                if (settings.sticky === true) cssmenu.css('position', 'fixed');
+
+                resizeFix = function() {
+                  if ($( window ).width() > 768) {
+                    cssmenu.find('ul').show();
+                  }
+
+                  if ($(window).width() <= 768) {
+                    cssmenu.find('ul').hide().removeClass('open');
+                  }
+                };
+                resizeFix();
+                return $(window).on('resize', resizeFix);
+
+              });
+          };
+        })(jQuery);
+
+        (function($){
+        $(document).ready(function(){
+
+        $("#cssmenu").menumaker({
+           title: "Menu",
+           format: "multitoggle"
+        });
+
+        });
+        })(jQuery);
+
+      </script>
+
+    </body>
+</html>
