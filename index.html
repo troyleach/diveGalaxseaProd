@@ -13,7 +13,7 @@
 
         <link rel="stylesheet" href="styles/vendor-12a30512.css">
 
-        <link rel="stylesheet" href="styles/main-1c744c41.css">
+        <link rel="stylesheet" href="styles/main-2b37e52c.css">
         <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -24,7 +24,7 @@
         
         <script src="scripts/modernizr-c1ff1650.js"></script>
     </head>
-    <body>
+    <body ng-controller="IndexCtrl as idx">
     <script src="scripts/vendor-c08ae175.js"></script>
      
         
@@ -32,7 +32,7 @@
 
     
     <!-- Any include make it between the build comments below -->
-    <script src="scripts/main-73f81ab6.js"></script>
+    <script src="scripts/main-2c5c46c8.js"></script>
 
     <script data-require="ui-bootstrap@*" data-semver="0.14.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.min.js"></script>
     <script>
@@ -68,6 +68,7 @@
                          <li><a href="#/about_cozumel">About Cozumel</a></li>
                          <li><a href="#/gallery">Gallery</a></li>
                          <li><a href="#/reservations">Book My Diving</a></li>
+                         <li ng-show="idx.isLoggedIn"><a href="#/admin">Dashboard</a></li>
                       </ul>
                     </div><!-- End of cssmenu -->
                   </div><!-- End of col 12 menu-nav-bar  -->
@@ -87,7 +88,7 @@
 
           <div ng-view=""></div>
 
-          <footer ng-controller="IndexCtrl as idx">
+          <footer>
             <div id="footer-container">
               <div class="">
                 <div id="" class="col-md-4">
@@ -157,7 +158,9 @@
                 </div>
 
                 <div class="copy-right general-line-brake col-md-12">
-                  copyright diveGalaxsea 2016 <span class="pull-right">site by:<a href="http://www.troyleach.com">&nbsp;&nbsp;&nbsp;Troyleach</a></span>
+                    copyright diveGalaxsea 2016 |
+                    <a href=""><span ng-click="idx.userLogin()">Admin login |</span></a>
+                    <span class="pull-right">site by:<a href="http://www.troyleach.com">&nbsp;&nbsp;&nbsp;Troyleach</a></span>
                 </div>
               </div>
             </div><!-- End of footer container -->
