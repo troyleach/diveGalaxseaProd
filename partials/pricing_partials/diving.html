@@ -1,1 +1,1 @@
-<table><tr ng-repeat="dive in pricing.currentPricingDiving"><td class="col-description">{{dive.title}}</td><td class="col-price" ng-if="dive.price == nil">$ Contact us</td><td class="col-price" ng-if="dive.price != nil">{{dive.price | currency}}</td></tr></table>
+<table><tr ng-repeat="dive in pricing.currentPricingDiving"><td class="col-description">{{dive.title}}</td><td class="col-description">{{dive.description}}</td><td class="col-price" ng-if="dive.price == nil">$ Contact us</td><td class="col-price" ng-if="dive.price != nil">{{dive.price | currency}}</td></tr></table>
